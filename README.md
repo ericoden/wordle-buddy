@@ -10,7 +10,7 @@ pip install wordle-buddy
 
 ## Play a game
 
-To play via the command line, simply run the `wordle_oden` command. To play in "manual mode", where you enter in the resulting colors, run `wordle_oden_manual`.
+To play via the command line, simply run the `wordle_buddy` command. To play in "manual mode", where you enter in the resulting colors, run `wordle_buddy_manual`.
 
 To play a game in a python terminal, instantiate a `WordleGame` object and use the `run()` method.
 
