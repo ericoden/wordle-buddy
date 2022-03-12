@@ -1,8 +1,0 @@
-LICENSE.rst
-README.md
-pyproject.toml
-setup.cfg
-wordle_oden/wordle_oden.egg-info/PKG-INFO
-wordle_oden/wordle_oden.egg-info/SOURCES.txt
-wordle_oden/wordle_oden.egg-info/dependency_links.txt
-wordle_oden/wordle_oden.egg-info/top_level.txt
