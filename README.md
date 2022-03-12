@@ -16,7 +16,7 @@ To play a game in a python terminal, instantiate a `WordleGame` object and use t
 
 ```python
 from wordle_oden import WordleGame
-game = BrandubGame()
+game = WordleGame()
 game.run()
 ```
 
