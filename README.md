@@ -15,7 +15,7 @@ To play via the command line, simply run the `wordle_buddy` command. To play in 
 To play a game in a python terminal, instantiate a `WordleGame` object and use the `run()` method.
 
 ```python
-from wordle_oden import WordleGame
+from wordle_buddy import WordleGame
 game = WordleGame()
 game.run()
 ```
