@@ -13,3 +13,7 @@ src/wordle_buddy.egg-info/SOURCES.txt
 src/wordle_buddy.egg-info/dependency_links.txt
 src/wordle_buddy.egg-info/requires.txt
 src/wordle_buddy.egg-info/top_level.txt
+src/wordle_buddy/data/allowed_words.txt
+src/wordle_buddy/data/allowed_words_entropies.txt
+src/wordle_buddy/data/possible_words.txt
+src/wordle_buddy/data/possible_words_entropies.txt
