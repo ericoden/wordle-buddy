@@ -1,6 +1,6 @@
 # A Python package to play Wordle
 
-My reproduction of the popular game (the real one [here](https://www.nytimes.com/games/wordle/index.html)), along with suggested words (based on entropy).
+My reproduction of the popular game (the real one [here](https://www.nytimes.com/games/wordle/index.html)). The implementation also suggests the top ten words, based on their [entropy](https://en.wikipedia.org/wiki/Entropy_(information_theory). Experiments have revealed choosing the maximum-entropy guess (i.e., the top suggestion) will lead to 3.6 guesses on average.
 
 ## Installation
 
