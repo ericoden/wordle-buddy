@@ -1,4 +1,4 @@
-from src.wordle_oden import WordleGame
+from src.wordle_buddy import WordleGame
 
-game = WordleGame(mode='manual')
+game = WordleGame(mode="play")
 game.run()
