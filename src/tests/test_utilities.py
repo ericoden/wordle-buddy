@@ -1,24 +1,19 @@
-import unittest
-from context import wordle_buddy
-from wordle_buddy.utilities import get_words
+"""module for testing the utilities module"""
+
+from wordle_buddy import utilities as utils
 
 
-class MyTest(unittest.TestCase):
-    def test_get_words(self):
-        word_list = get_words("possible_words")
-        self.assertEqual(len(word_list), 2315)
-        first_word = word_list[0]
-        self.assertEqual(first_word, "ABACK")
-        last_word = word_list[-1]
-        self.assertEqual(last_word, "ZONAL")
+def test_get_words():
+    word_list = utils.get_words("possible_words")
+    assert len(word_list) == 2315, "length of possible words incorrect"
+    first_word = word_list[0]
+    assert first_word == "ABACK", "first word in possible words incorrect"
+    last_word = word_list[-1]
+    assert last_word == "ZONAL", "last word in possible words incorrect"
 
-        word_list = get_words("allowed_words")
-        self.assertEqual(len(word_list), 12972)
-        first_word = word_list[0]
-        self.assertEqual(first_word, "AAHED")
-        last_word = word_list[-1]
-        self.assertEqual(last_word, "ZYMIC")
-
-
-if __name__ == "__main__":
-    unittest.main()
+    word_list = utils.get_words("allowed_words")
+    assert len(word_list) == 12972, "length of allowed words incorrect"
+    first_word = word_list[0]
+    assert first_word == "AAHED", "first word in allowed words incorrect"
+    last_word = word_list[-1]
+    assert last_word == "ZYMIC", "last word in allowed words"
