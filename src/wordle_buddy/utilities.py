@@ -7,6 +7,9 @@ import pkg_resources
 
 
 def download_word_lists() -> None:
+    """
+    Downloads both word lists from 3blue1brown's github page
+    """
     base_url = (
         "https://raw.githubusercontent.com/3b1b/videos/master/"
         + "2022/wordle/data/"
@@ -22,6 +25,9 @@ def download_word_lists() -> None:
 
 
 def get_words(list_name: str):
+    """
+    Reads the given word list from file into a list of capitalized words
+    """
     resource_package = __name__
     resource_path = "/".join(("data", f"{list_name}.txt"))
     word_list = pkg_resources.resource_string(resource_package, resource_path)

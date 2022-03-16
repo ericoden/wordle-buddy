@@ -1,1 +1,2 @@
+tests
 wordle_buddy

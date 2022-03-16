@@ -4,6 +4,9 @@ pyproject.toml
 setup.cfg
 bin/wordle_buddy
 bin/wordle_buddy_manual
+src/tests/__init__.py
+src/tests/test_solver.py
+src/tests/test_utilities.py
 src/wordle_buddy/__init__.py
 src/wordle_buddy/solver.py
 src/wordle_buddy/utilities.py
