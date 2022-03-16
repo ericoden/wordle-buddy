@@ -15,12 +15,3 @@ manual mode.
 
    usage
    wordle_buddy
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
