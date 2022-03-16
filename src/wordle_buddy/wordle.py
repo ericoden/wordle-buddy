@@ -50,6 +50,10 @@ WHITE = (255, 255, 255)
 
 
 class WordleGame(pyglet.window.Window):
+    """
+    Front end interface for the game
+    """
+
     def __init__(self, mode="play"):
         self.wordle = Wordle(mode=mode)
         super().__init__(
@@ -58,6 +62,9 @@ class WordleGame(pyglet.window.Window):
         self.event_loop = pyglet.app.event_loop
 
     def run(self):
+        """
+        Starts the game
+        """
         self.set_visible()
         pyglet.app.run()
 
