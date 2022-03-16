@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>wordle_buddy package &mdash; Wordle Buddy 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Usage" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Wordle Buddy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">wordle_buddy package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-wordle_buddy.solver">wordle_buddy.solver module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-wordle_buddy.utilities">wordle_buddy.utilities module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-wordle_buddy.wordle">wordle_buddy.wordle module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-wordle_buddy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Wordle Buddy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>wordle_buddy package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/wordle_buddy.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="wordle-buddy-package">
+<h1>wordle_buddy package<a class="headerlink" href="#wordle-buddy-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-wordle_buddy.solver">
+<span id="wordle-buddy-solver-module"></span><h2>wordle_buddy.solver module<a class="headerlink" href="#module-wordle_buddy.solver" title="Permalink to this headline"></a></h2>
+<p>Functions for game calculations.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="wordle_buddy.solver.calculate_entropy">
+<span class="sig-prename descclassname"><span class="pre">wordle_buddy.solver.</span></span><span class="sig-name descname"><span class="pre">calculate_entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_word</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">word_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#wordle_buddy.solver.calculate_entropy" title="Permalink to this definition"></a></dt>
+<dd><p>Given an input word and a list of possible solutions (word_list),
+calculates the expected information gain from the guess:</p>
+<p>sum{c in color_patterns} [-P(c) * Log2(P(c))]</p>
+<p>where P(c) is the probability that the input word yields color pattern c.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wordle_buddy.solver.get_color_pattern">
+<span class="sig-prename descclassname"><span class="pre">wordle_buddy.solver.</span></span><span class="sig-name descname"><span class="pre">get_color_pattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_word</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#wordle_buddy.solver.get_color_pattern" title="Permalink to this definition"></a></dt>
+<dd><p>Given an input word and a solution, generates the resulting
+color pattern.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wordle_buddy.solver.safe_log2">
+<span class="sig-prename descclassname"><span class="pre">wordle_buddy.solver.</span></span><span class="sig-name descname"><span class="pre">safe_log2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#wordle_buddy.solver.safe_log2" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the base-2 logarithm if x &gt; 0, else returns 0</p>
+</dd></dl>
+
+</section>
+<section id="module-wordle_buddy.utilities">
+<span id="wordle-buddy-utilities-module"></span><h2>wordle_buddy.utilities module<a class="headerlink" href="#module-wordle_buddy.utilities" title="Permalink to this headline"></a></h2>
+<p>Functions for downloading and reading word lists</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="wordle_buddy.utilities.download_word_lists">
+<span class="sig-prename descclassname"><span class="pre">wordle_buddy.utilities.</span></span><span class="sig-name descname"><span class="pre">download_word_lists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#wordle_buddy.utilities.download_word_lists" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wordle_buddy.utilities.get_words">
+<span class="sig-prename descclassname"><span class="pre">wordle_buddy.utilities.</span></span><span class="sig-name descname"><span class="pre">get_words</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.utilities.get_words" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-wordle_buddy.wordle">
+<span id="wordle-buddy-wordle-module"></span><h2>wordle_buddy.wordle module<a class="headerlink" href="#module-wordle_buddy.wordle" title="Permalink to this headline"></a></h2>
+<p>Front end and game logic</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Cell">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wordle_buddy.wordle.</span></span><span class="sig-name descname"><span class="pre">Cell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Cell" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Cell.delete_letter">
+<span class="sig-name descname"><span class="pre">delete_letter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Cell.delete_letter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Cell.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Cell.draw" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Cell.set_active">
+<span class="sig-name descname"><span class="pre">set_active</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Cell.set_active" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Cell.set_in_active_row">
+<span class="sig-name descname"><span class="pre">set_in_active_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Cell.set_in_active_row" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Cell.set_letter">
+<span class="sig-name descname"><span class="pre">set_letter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Cell.set_letter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Grid">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wordle_buddy.wordle.</span></span><span class="sig-name descname"><span class="pre">Grid</span></span><a class="headerlink" href="#wordle_buddy.wordle.Grid" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Grid.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Grid.draw" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Row">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wordle_buddy.wordle.</span></span><span class="sig-name descname"><span class="pre">Row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Row" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Row.activate_row">
+<span class="sig-name descname"><span class="pre">activate_row</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Row.activate_row" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Row.deactivate_row">
+<span class="sig-name descname"><span class="pre">deactivate_row</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Row.deactivate_row" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Row.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Row.draw" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wordle_buddy.wordle.</span></span><span class="sig-name descname"><span class="pre">Wordle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'play'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Wordle" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.autoplay">
+<span class="sig-name descname"><span class="pre">autoplay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Wordle.autoplay" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.backspace">
+<span class="sig-name descname"><span class="pre">backspace</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Wordle.backspace" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.check">
+<span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Wordle.check" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.click">
+<span class="sig-name descname"><span class="pre">click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clicked_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clicked_col</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Wordle.click" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.decrement_letter">
+<span class="sig-name descname"><span class="pre">decrement_letter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Wordle.decrement_letter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.enter">
+<span class="sig-name descname"><span class="pre">enter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Wordle.enter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.enter_letter">
+<span class="sig-name descname"><span class="pre">enter_letter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Wordle.enter_letter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.get_current_color_pattern">
+<span class="sig-name descname"><span class="pre">get_current_color_pattern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Wordle.get_current_color_pattern" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.get_random_solution">
+<span class="sig-name descname"><span class="pre">get_random_solution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Wordle.get_random_solution" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.get_suggestions">
+<span class="sig-name descname"><span class="pre">get_suggestions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Wordle.get_suggestions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.increment_letter">
+<span class="sig-name descname"><span class="pre">increment_letter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Wordle.increment_letter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.n_guesses">
+<span class="sig-name descname"><span class="pre">n_guesses</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#wordle_buddy.wordle.Wordle.n_guesses" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.n_simulations">
+<span class="sig-name descname"><span class="pre">n_simulations</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#wordle_buddy.wordle.Wordle.n_simulations" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.print_suggestions">
+<span class="sig-name descname"><span class="pre">print_suggestions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Wordle.print_suggestions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.Wordle.trim_word_list">
+<span class="sig-name descname"><span class="pre">trim_word_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.Wordle.trim_word_list" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.WordleGame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wordle_buddy.wordle.</span></span><span class="sig-name descname"><span class="pre">WordleGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'play'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.WordleGame" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyglet.window.BaseWindow</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.WordleGame.get_cell_at_position">
+<span class="sig-name descname"><span class="pre">get_cell_at_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.WordleGame.get_cell_at_position" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.WordleGame.on_draw">
+<span class="sig-name descname"><span class="pre">on_draw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.WordleGame.on_draw" title="Permalink to this definition"></a></dt>
+<dd><p>The window contents must be redrawn.</p>
+<p>The <cite>EventLoop</cite> will dispatch this event when the window
+should be redrawn.  This will happen during idle time after
+any window events and after any scheduled functions were called.</p>
+<p>The window will already have the GL context, so there is no
+need to call <cite>switch_to</cite>.  The window’s <cite>flip</cite> method will
+be called after this event, so your event handler should not.</p>
+<p>You should make no assumptions about the window contents when
+this event is triggered; a resize or expose event may have
+invalidated the framebuffer since the last time it was drawn.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.1.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Event</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.WordleGame.on_key_press">
+<span class="sig-name descname"><span class="pre">on_key_press</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modifiers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.WordleGame.on_key_press" title="Permalink to this definition"></a></dt>
+<dd><p>A key on the keyboard was pressed (and held down).</p>
+<p>In pyglet 1.0 the default handler sets <cite>has_exit</cite> to <code class="docutils literal notranslate"><span class="pre">True</span></code> if
+the <code class="docutils literal notranslate"><span class="pre">ESC</span></code> key is pressed.</p>
+<p>In pyglet 1.1 the default handler dispatches the <code class="xref py py-meth docutils literal notranslate"><span class="pre">on_close()</span></code>
+event if the <code class="docutils literal notranslate"><span class="pre">ESC</span></code> key is pressed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><cite>symbol</cite><span class="classifier">int</span></dt><dd><p>The key symbol pressed.</p>
+</dd>
+<dt><cite>modifiers</cite><span class="classifier">int</span></dt><dd><p>Bitwise combination of the key modifiers active.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Event</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.WordleGame.on_mouse_press">
+<span class="sig-name descname"><span class="pre">on_mouse_press</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">button</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modifiers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.WordleGame.on_mouse_press" title="Permalink to this definition"></a></dt>
+<dd><p>A mouse button was pressed (and held down).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><cite>x</cite><span class="classifier">int</span></dt><dd><p>Distance in pixels from the left edge of the window.</p>
+</dd>
+<dt><cite>y</cite><span class="classifier">int</span></dt><dd><p>Distance in pixels from the bottom edge of the window.</p>
+</dd>
+<dt><cite>button</cite><span class="classifier">int</span></dt><dd><p>The mouse button that was pressed.</p>
+</dd>
+<dt><cite>modifiers</cite><span class="classifier">int</span></dt><dd><p>Bitwise combination of any keyboard modifiers currently
+active.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Event</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.WordleGame.on_window_close">
+<span class="sig-name descname"><span class="pre">on_window_close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.WordleGame.on_window_close" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wordle_buddy.wordle.WordleGame.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wordle_buddy.wordle.WordleGame.run" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-wordle_buddy">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-wordle_buddy" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Eric Oden.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
