@@ -14,6 +14,7 @@ manual mode.
    :caption: Contents:
 
    usage
+   wordle_buddy
 
 
 
