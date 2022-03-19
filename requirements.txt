@@ -1,3 +1,4 @@
 flake8
 pyglet==1.5.22
-numpy==1.22.3
+numpy>=1.21.0
+requests>=2.27.1

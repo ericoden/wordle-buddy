@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: wordle-buddy
-Version: 0.0.2
+Version: 0.0.4
 Summary: A game of wordle with suggested words!
 Home-page: https://github.com/ericoden/wordle-buddy
 Author: Eric Oden
@@ -19,6 +19,9 @@ License-File: LICENSE.rst
 My reproduction of the popular game (the real one [here](https://www.nytimes.com/games/wordle/index.html)). The implementation also suggests the top ten words, based on their [entropy](https://en.wikipedia.org/wiki/Entropy_(information_theory)). Experiments have revealed choosing the maximum-entropy guess (i.e., the top suggestion) will lead to 3.6 guesses on average.
 
 Documentation available on [ReadTheDocs](https://wordle-buddy.readthedocs.io/en/latest/).
+
+<img src="example_usage.gif" width="250" height="250"/>
+
 
 ## Installation
 

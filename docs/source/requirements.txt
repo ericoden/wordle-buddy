@@ -1,5 +1,0 @@
-myst-parser==0.15.2
-sphinx==4.1.2
-sphinx-rtd-theme==0.5.2
-pyglet==1.5.22
-numpy==1.22.3
