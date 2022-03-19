@@ -4,8 +4,9 @@ My reproduction of the popular game (the real one [here](https://www.nytimes.com
 
 Documentation available on [ReadTheDocs](https://wordle-buddy.readthedocs.io/en/latest/).
 
+<p align="center">
 <img src="example_usage.gif" width="250" height="250"/>
-
+</p>
 
 ## Installation
 
